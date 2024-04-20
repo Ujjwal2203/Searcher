@@ -6,7 +6,82 @@ module.exports=withMT({
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        'base':{
+          'primary':'#42032C',
+          'accent':'#F1EFDC',
+          'tertiary':"#E6D2AA"
+        },
+        'gray':{
+          '1':'#ACACAC',
+          '2':'#C0C0C0',
+          '3':'#D7D7D7',
+          '4':'#EBEBEB',
+          '5':'#FFFFFF',
+          '6':'#343434',
+          '7':'#252525',
+          '8':'#1D1D1D',
+          '9':'#151515',
+          '10':'#000000',
+        },
+        'semantics':{
+          '1':'#0ECE15',
+          '2':'#CE0E0E',
+          '3':'#CEC60E',
+        }
+      },
+      backgroundImage:{
+        "grad":"linear-gradient(to top, #F1EFDC 60%,#42032C 40%)",
+      },
+      backgroundColor:{
+        'base':{
+          'primary':'#42032C',
+          'accent':'#F1EFDC',
+          'tertiary':"#E6D2AA"
+        },
+        'gray':{
+          '1':'#ACACAC',
+          '2':'#C0C0C0',
+          '3':'#D7D7D7',
+          '4':'#EBEBEB',
+          '5':'#FFFFFF',
+          '6':'#343434',
+          '7':'#252525',
+          '8':'#1D1D1D',
+          '9':'#151515',
+          '10':'#000000',
+        },
+        'semantics':{
+          '1':'#0ECE15',
+          '2':'#CE0E0E',
+          '3':'#CEC60E',
+        }
+      },
+      borderColor:{
+        'base':{
+          'primary':'#509EB7',
+          'accent':'#6D6C6F'
+        },
+        'gray':{
+          '1':'#ACACAC',
+          '2':'#C0C0C0',
+          '3':'#D7D7D7',
+          '4':'#EBEBEB',
+          '5':'#FFFFFF',
+          '6':'#343434',
+          '7':'#252525',
+          '8':'#1D1D1D',
+          '9':'#151515',
+          '10':'#000000',
+        },
+        'semantics':{
+          '1':'#0ECE15',
+          '2':'#CE0E0E',
+          '3':'#CEC60E',
+        }
+      },
+    },
   },
   plugins: [],
 });
