@@ -1,13 +1,13 @@
 import React from 'react'
 import { FaSearch } from "react-icons/fa";
+import {RiSendPlaneFill} from "react-icons/ri"
 export default function Home() {
   return (
-    <form className='w-[500px] relative'>
-      <div className="relative">
-        <input type='search' placeholder='connect your apps and start searching' className='w-full p-4 rounded-full bg-gray-8'/>
-        <button className='absolute right-1 top-1/2 -translate-y-1/2 p-4 bg-gray-9 rounded-full'> 
-          <FaSearch className='text-gray-1'/>
-        </button>
+    <form className='w-1/2 relative '>
+      <div className="relative flex pl-10 pr-6 py-2 rounded-xl bg-gray-7 place-items-center gap-4">
+        <FaSearch className='text-gray-1'/>
+        <input type='search' placeholder='connect your apps and start searching' className='w-full bg-transparent outline-0'/>
+        <button className='p-4 bg-gray-6 rounded-full'><RiSendPlaneFill/></button>
       </div>
 
     </form>

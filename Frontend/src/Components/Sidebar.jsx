@@ -1,90 +1,50 @@
-import React from "react";
-import {
-  IconButton,
-  Typography,
-  List,
-  ListItem,
-  ListItemPrefix,
-  ListItemSuffix,
-  Chip,
-  Accordion,
-  AccordionHeader,
-  AccordionBody,
-  Alert,
-  Input,
-  Drawer,
-  Card,
-} from "@material-tailwind/react";
-
-import {FaHome,FaBars, FaPowerOff} from "react-icons/fa";
-import { HiOutlineX ,HiOutlineUser } from "react-icons/hi";
+import React, { useState, useEffect } from "react";
+import { IconButton, List, ListItem, ListItemPrefix, Drawer, Card } from "@material-tailwind/react";
+import { FaHome, FaBars, FaPowerOff } from "react-icons/fa";
+import { HiOutlineX} from "react-icons/hi";
 import { MdDashboardCustomize } from "react-icons/md";
-import { Link } from "react-router-dom";
-
+import { Link, useLocation } from "react-router-dom";
 
 export function SidebarWithBurgerMenu() {
-  const [open, setOpen] = React.useState(0);
-  const [openAlert, setOpenAlert] = React.useState(true);
-  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
- 
-  const handleOpen = (value) => {
-    setOpen(open === value ? 0 : value);
-  };
- 
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const location = useLocation();
+
   const openDrawer = () => setIsDrawerOpen(true);
   const closeDrawer = () => setIsDrawerOpen(false);
- 
+
+  // Close drawer when route changes
+  useEffect(() => {
+    closeDrawer();
+  }, [location.pathname]);
+
   return (
     <>
-      <IconButton variant="text" size="sm" onClick={openDrawer}>
+      <IconButton variant="text" size="lg" onClick={openDrawer}>
         {isDrawerOpen ? (
-          <HiOutlineX className="w-4 stroke-2" />
+          <HiOutlineX className="stroke-2 text-gray-5" />
         ) : (
-          <FaBars className=" w-4 stroke-2" />
+          <FaBars className=" stroke-2 text-gray-5" />
         )}
       </IconButton>
-      <Drawer open={isDrawerOpen} onClose={closeDrawer}>
-        <Card
-          color="transparent"
-          shadow={false}
-          className="h-[calc(100vh-2rem)] w-10/12 p-4"
-        >
-          <div className="mb-2 flex items-center gap-4 p-4">
-            <img
-              src="https://docs.material-tailwind.com/img/logo-ct-dark.png"
-              alt="brand"
-              className="h-8 w-8"
-            />
-            <Typography variant="h5" color="blue-gray">
-              Sidebar
-            </Typography>
-          </div>
-         
-          <List>
-            <hr className="my-2 border-blue-gray-50 " />
+      <Drawer open={isDrawerOpen} size={250} onClose={closeDrawer} transition={{type: "tween", duration: 0.2 }}>
+        <Card color="transparent" shadow={false} className="h-[calc(100vh-2rem)] p-4">
+          <List className="">
+            <hr className="my-2 w-full border-blue-gray-50 " />
             <Link to="/Home">
-            <ListItem>
-              <ListItemPrefix>
-                <FaHome className="w-4" />
-              </ListItemPrefix>
-              Home
-            </ListItem>
-            </Link>
-            <Link to="/Dashboard">
-            <ListItem>
-              <ListItemPrefix>
-                <HiOutlineUser  className="w-4" />
-              </ListItemPrefix>
-              Dashboard
-            </ListItem>
+              <ListItem>
+                <ListItemPrefix>
+                  <FaHome className="w-4" />
+                </ListItemPrefix>
+                Home
+              </ListItem>
             </Link>
             <Link to="Integrations">
-            <ListItem>
-              <ListItemPrefix>
-                <MdDashboardCustomize  className="w-4" />
-              </ListItemPrefix>
-              Integrations
-            </ListItem>
+              <ListItem>
+                <ListItemPrefix>
+                  <MdDashboardCustomize className="w-4" />
+                </ListItemPrefix>
+                Integrations
+              </ListItem>
             </Link>
             <ListItem>
               <ListItemPrefix>
