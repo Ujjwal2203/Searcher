@@ -27,7 +27,7 @@ export function SidebarWithBurgerMenu() {
         )}
       </IconButton>
       <Drawer open={isDrawerOpen} size={250} onClose={closeDrawer} transition={{type: "tween", duration: 0.2 }}>
-        <Card color="transparent" shadow={false} className="h-[calc(100vh-2rem)] p-4">
+        <Card color="transparent" shadow={false} className="h-[calc(100vh-2rem)] px-2 py-4">
           <List className="">
             <hr className="my-2 w-full border-blue-gray-50 " />
             <Link to="/Home">
@@ -46,9 +46,9 @@ export function SidebarWithBurgerMenu() {
                 Integrations
               </ListItem>
             </Link>
-            <ListItem>
+            <ListItem className="hover:bg-red-400 hover:text-gray-5">
               <ListItemPrefix>
-                <FaPowerOff className="h-5 w-5" />
+                <FaPowerOff className="w-4" />
               </ListItemPrefix>
               Log Out
             </ListItem>
